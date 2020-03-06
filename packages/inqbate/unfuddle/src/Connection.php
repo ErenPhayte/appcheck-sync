@@ -6,7 +6,7 @@
  * Date: 2020/03/05
  * Time: 10:00
  */
-namespace Inqbate\Appcheck;
+namespace Inqbate\Unfuddle;
 
 
 class Connection

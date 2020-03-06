@@ -11,13 +11,14 @@
 |
 */
 use Inqbate\Appcheck;
-use Inqbate\Unfuddled;
+use Inqbate\Unfuddle;
 
 Route::get('/', function () {
 
 
     $connection = new Unfuddle\Connection('https://bitscube.unfuddle.com/', 'jsteynr11f808' , 'Ph@3nix2019');
-    $unfuddled = new Unfuddle\Client($connection);
+    $unfuddle = new Unfuddle\Client($connection);
+    $unfuddle->account_snapshot();
 
 
 //    $connection = new Appcheck\Connection('e5364ab8c6cd70fbb039c33aa2404b55');

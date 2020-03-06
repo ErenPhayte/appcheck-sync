@@ -90,7 +90,7 @@ abstract class UnfuddleAbstract
      * @param array $data
      * @return UnfuddleAbstract
      */
-    public function setRequestBody(array $data): UnfuddleAbstract
+    private function setRequestBody(array $data): UnfuddleAbstract
     {
         $this->requestBody = json_encode($data);
         return $this;
@@ -119,7 +119,7 @@ abstract class UnfuddleAbstract
      * @param array $headers
      * @return UnfuddleAbstract
      */
-    public function setRequestHeaders(array $headers): UnfuddleAbstract
+    private function setRequestHeaders(array $headers): UnfuddleAbstract
     {
         $this->requestHeaders = $headers;
         return $this;
@@ -157,7 +157,7 @@ abstract class UnfuddleAbstract
      * @param string|array $body
      * @return UnfuddleAbstract
      */
-    public function setResponseBody($body): UnfuddleAbstract
+    private function setResponseBody($body): UnfuddleAbstract
     {
         if(is_string($body)) {
             $this->responseBody = json_decode($body, true) ?? null;
@@ -172,7 +172,7 @@ abstract class UnfuddleAbstract
      * @param array $headers
      * @return UnfuddleAbstract
      */
-    public function setResponseHeaders(array $headers): UnfuddleAbstract
+    private function setResponseHeaders(array $headers): UnfuddleAbstract
     {
         $this->responseHeaders = $headers;
         return $this;
@@ -198,7 +198,7 @@ abstract class UnfuddleAbstract
     /**
      * @param string $id
      */
-    public function setId(string $id): void
+    protected function setId(string $id): void
     {
         $this->id = $id;
     }
@@ -210,7 +210,7 @@ abstract class UnfuddleAbstract
      * @param array $data
      * @return UnfuddleAbstract
      */
-    public function get(array $data): UnfuddleAbstract
+    public function get(array $data = []): UnfuddleAbstract
     {
         return $this->fetch('GET', $data);
 
@@ -244,7 +244,7 @@ abstract class UnfuddleAbstract
      * @param array $data
      * @return UnfuddleAbstract
      */
-    public function delete(array $data): UnfuddleAbstract
+    public function delete(array $data = []): UnfuddleAbstract
     {
         return $this->fetch('DELETE', $data);
     }
@@ -258,13 +258,14 @@ abstract class UnfuddleAbstract
      */
     private function fetch(string $method = 'GET', array $data = []): UnfuddleAbstract {
 
+      //  return $this->debug();
         $method = strtoupper($method);
         $client = new GuzzleHttp\Client();
         $endpoint = $this->baseUrl . $this->getRequestUri();
 
         $this->setRequestHeaders([
             'Accept' => 'application/json',
-            'Accept-Encoding' => 'identity'
+            'Content-Type' => 'application/json'
         ]);
 
         $this->setRequestBody($data);
@@ -317,6 +318,7 @@ abstract class UnfuddleAbstract
                 'headers' => $this->getResponseHeaders()
             ]
         ];
+        dump($debug);
         return (object) $debug;
     }
 

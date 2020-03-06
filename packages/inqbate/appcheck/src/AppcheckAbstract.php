@@ -90,7 +90,7 @@ abstract class AppcheckAbstract
      * @param array $data
      * @return AppcheckAbstract
      */
-    public function setRequestBody(array $data): AppcheckAbstract
+    private function setRequestBody(array $data): AppcheckAbstract
     {
         $this->requestBody = json_encode($data);
         return $this;
@@ -119,7 +119,7 @@ abstract class AppcheckAbstract
      * @param array $headers
      * @return AppcheckAbstract
      */
-    public function setRequestHeaders(array $headers): AppcheckAbstract
+    private function setRequestHeaders(array $headers): AppcheckAbstract
     {
         $this->requestHeaders = $headers;
         return $this;
@@ -157,7 +157,7 @@ abstract class AppcheckAbstract
      * @param string|array $body
      * @return AppcheckAbstract
      */
-    public function setResponseBody($body): AppcheckAbstract
+    private function setResponseBody($body): AppcheckAbstract
     {
         if(is_string($body)) {
             $this->responseBody = json_decode($body, true) ?? null;
@@ -172,7 +172,7 @@ abstract class AppcheckAbstract
      * @param array $headers
      * @return AppcheckAbstract
      */
-    public function setResponseHeaders(array $headers): AppcheckAbstract
+    private function setResponseHeaders(array $headers): AppcheckAbstract
     {
         $this->responseHeaders = $headers;
         return $this;
@@ -198,7 +198,7 @@ abstract class AppcheckAbstract
     /**
      * @param string $id
      */
-    public function setId(string $id): void
+    protected function setId(string $id): void
     {
         $this->id = $id;
     }
@@ -210,7 +210,7 @@ abstract class AppcheckAbstract
      * @param array $data
      * @return AppcheckAbstract
      */
-    public function get(array $data): AppcheckAbstract
+    public function get(array $data = []): AppcheckAbstract
     {
         return $this->fetch('GET', $data);
 

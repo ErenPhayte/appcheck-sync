@@ -12,4 +12,24 @@ namespace Inqbate\Unfuddle;
 class Client extends UnfuddleAbstract
 {
     use TicketReportTrait;
+
+    /**
+     * Get account details
+     *
+     * @return object|null
+     */
+    public function account():?object
+    {
+        return (new Account($this->connection))->get();
+    }
+
+    /**
+     * Return all scans
+     * @return object|null
+     */
+    public function account_snapshot():?object
+    {
+        return $this->setRequestUri('initializer')->get();
+
+    }
 }

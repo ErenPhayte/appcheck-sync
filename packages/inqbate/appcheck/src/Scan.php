@@ -124,7 +124,7 @@ class Scan extends AppcheckAbstract
      */
     public function update(array $data): object
     {
-        return $this->performAction('update')->setRequestBody($data)->post();
+        return $this->performAction('update')->post($data);
     }
 
     /**
@@ -240,7 +240,7 @@ class Scan extends AppcheckAbstract
     public function create(array $data)
     {
 
-        $scan = $this->setRequestUri('scan/new')->setRequestBody($data)->post();
+        $scan = $this->setRequestUri('scan/new')->post($data);
         if ($scan) {
             $this->id = $scan->scan_id;
         }
