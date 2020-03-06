@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ComposerJsonPluginSettings">
+    <unboundedVersionInspectionSettings>
+      <excludedPackages>
+        <pattern pattern="roave/security-advisories" />
+      </excludedPackages>
+    </unboundedVersionInspectionSettings>
+    <customRepositories>
+      <file path="$USER_HOME$/workspace/projects/appcheck-sync/composer.json" enabled="true" />
+      <file path="$USER_HOME$/workspace/projects/appcheck-sync/packages/inqbate/appchecksync/composer.json" enabled="false" />
+    </customRepositories>
+    <composerUpdateOptions />
+  </component>
+</project>
