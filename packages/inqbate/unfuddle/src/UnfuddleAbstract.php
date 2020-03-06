@@ -7,12 +7,12 @@
  * Time: 10:00
  */
 
-namespace Inqbate\Appcheck;
+namespace Inqbate\Unfuddle;
 
 use GuzzleHttp;
 use GuzzleHttp\Exception\ClientException;
 
-abstract class AppcheckAbstract
+abstract class UnfuddleAbstract
 {
     /**
      * @var string
@@ -68,9 +68,9 @@ abstract class AppcheckAbstract
     /**
      * Set the request URI
      * @param string $requestUri
-     * @return AppcheckAbstract
+     * @return UnfuddleAbstract
      */
-    public function setRequestUri(string $requestUri): AppcheckAbstract
+    public function setRequestUri(string $requestUri): UnfuddleAbstract
     {
         $this->requestUri = $requestUri;
         return $this;
@@ -88,9 +88,9 @@ abstract class AppcheckAbstract
     /**
      * Set the request body
      * @param array $data
-     * @return AppcheckAbstract
+     * @return UnfuddleAbstract
      */
-    public function setRequestBody(array $data): AppcheckAbstract
+    public function setRequestBody(array $data): UnfuddleAbstract
     {
         $this->requestBody = json_encode($data);
         return $this;
@@ -117,9 +117,9 @@ abstract class AppcheckAbstract
     /**
      * Set the request headers
      * @param array $headers
-     * @return AppcheckAbstract
+     * @return UnfuddleAbstract
      */
-    public function setRequestHeaders(array $headers): AppcheckAbstract
+    public function setRequestHeaders(array $headers): UnfuddleAbstract
     {
         $this->requestHeaders = $headers;
         return $this;
@@ -155,9 +155,9 @@ abstract class AppcheckAbstract
     /**
      * Set the response body
      * @param string|array $body
-     * @return AppcheckAbstract
+     * @return UnfuddleAbstract
      */
-    public function setResponseBody($body): AppcheckAbstract
+    public function setResponseBody($body): UnfuddleAbstract
     {
         if(is_string($body)) {
             $this->responseBody = json_decode($body, true) ?? null;
@@ -170,9 +170,9 @@ abstract class AppcheckAbstract
     /**
      * Set the response headers
      * @param array $headers
-     * @return AppcheckAbstract
+     * @return UnfuddleAbstract
      */
-    public function setResponseHeaders(array $headers): AppcheckAbstract
+    public function setResponseHeaders(array $headers): UnfuddleAbstract
     {
         $this->responseHeaders = $headers;
         return $this;
@@ -208,9 +208,9 @@ abstract class AppcheckAbstract
      * Get data from endpoint
      *
      * @param array $data
-     * @return AppcheckAbstract
+     * @return UnfuddleAbstract
      */
-    public function get(array $data): AppcheckAbstract
+    public function get(array $data): UnfuddleAbstract
     {
         return $this->fetch('GET', $data);
 
@@ -220,22 +220,45 @@ abstract class AppcheckAbstract
      * Post data to endpoint
      *
      * @param array $data
-     * @return AppcheckAbstract
+     * @return UnfuddleAbstract
      */
-    public function post(array $data): AppcheckAbstract
+    public function post(array $data): UnfuddleAbstract
     {
         return $this->fetch('POST', $data);
     }
 
+    /**
+     * Update data at an endpoint
+     *
+     * @param array $data
+     * @return UnfuddleAbstract
+     */
+    public function put(array $data): UnfuddleAbstract
+    {
+        return $this->fetch('PUT', $data);
+    }
 
     /**
-     * Handles both GET and POST requests
+     * Delete data from an endpoint
+     *
+     * @param array $data
+     * @return UnfuddleAbstract
+     */
+    public function delete(array $data): UnfuddleAbstract
+    {
+        return $this->fetch('DELETE', $data);
+    }
+
+
+    /**
+     * Handles all requests types
      * @param string $method
      * @param array $data
-     * @return AppcheckAbstract
+     * @return UnfuddleAbstract
      */
-    private function fetch(string $method = 'GET', array $data = []): AppcheckAbstract {
+    private function fetch(string $method = 'GET', array $data = []): UnfuddleAbstract {
 
+        $method = strtoupper($method);
         $client = new GuzzleHttp\Client();
         $endpoint = $this->baseUrl . $this->getRequestUri();
 
@@ -248,7 +271,7 @@ abstract class AppcheckAbstract
 
         $key = 'query';
 
-        if($method = 'POST') {
+        if($method != 'GET' || $method != 'DELETE') {
             $key = 'json';
         }
 

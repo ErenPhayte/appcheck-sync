@@ -40,7 +40,7 @@
         },
         {
             "type": "path",
-            "url": "packages/inqbate/unfuddled",
+            "url": "packages/inqbate/unfuddle",
             "options": {
                 "symlink": true
             }

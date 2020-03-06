@@ -12,6 +12,9 @@ namespace Inqbate\Appcheck;
 class Connection
 {
 
+    /**
+     * @var string
+     */
     private $endpoint = 'https://api.appcheck-ng.com/';
     /**
      * @var string
@@ -21,20 +24,28 @@ class Connection
     /**
      * Connection constructor.
      *
-     * @param   String   $apikey
+     * @param   string   $apikey
      */
-    public function __construct($apikey)
+    public function __construct(string $apikey)
     {
         if(empty($apikey)) {
             throw new Exceptions\AuthNotFoundException();
         }
-        $this->apikey = $apikey;
+        $this->setApiKey($apikey);
     }
 
     /**
-     * @param $endpoint
+     * @return string
      */
-    public function setEndpoint($endpoint)
+    public function getEndpoint(): string
+    {
+        return $this->endpoint;
+    }
+
+    /**
+     * @param string $endpoint
+     */
+    public function setEndpoint(string $endpoint): void
     {
         $this->endpoint = $endpoint;
     }
@@ -42,24 +53,17 @@ class Connection
     /**
      * @return string
      */
-    public function getEndpoint()
+    public function getApiKey(): string
     {
-        return $this->endpoint;
+        return $this->apikey;
     }
 
     /**
-     * @param $apikey
+     * @param string $apikey
      */
-    public function setApiKey($apikey)
+    public function setApiKey(string $apikey): void
     {
         $this->apikey = $apikey;
     }
 
-    /**
-     * @return string
-     */
-    public function getApiKey()
-    {
-        return $this->apikey;
-    }
 }

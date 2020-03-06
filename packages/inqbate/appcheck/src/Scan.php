@@ -11,10 +11,6 @@ namespace Inqbate\Appcheck;
 class Scan extends AppcheckAbstract
 {
     use VulnerabilityTrait;
-    /**
-     * @var string
-     */
-    private $id;
 
     /**
      * Performs an action on the object

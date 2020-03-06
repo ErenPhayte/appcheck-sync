@@ -1,6 +1,6 @@
 {
-    "name": "inqbate/unfuddled",
-    "description": "Unfuddled API Wrapper",
+    "name": "inqbate/unfuddle",
+    "description": "Unfuddle API Wrapper",
     "keywords": [
     ],
     "homepage": "https://...",
@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Inqbate\\Unfuddled\\": "src/"
+            "Inqbate\\Unfuddle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Inqbate\\Jira\\Tests\\": "tests/"
+            "Inqbate\\Unfuddle\\Tests\\": "tests/"
         }
     },
     "extra": {

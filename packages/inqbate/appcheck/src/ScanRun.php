@@ -12,10 +12,7 @@ namespace Inqbate\Appcheck;
 class ScanRun extends AppcheckAbstract
 {
     use VulnerabilityTrait;
-    /**
-     * @var string
-     */
-    private $id;
+
     /**
      * @var string
      */
