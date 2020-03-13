@@ -3,6 +3,8 @@
  *
  * @author Johan Steyn <jsteyn@quint.co.uk>
  * @link https://api.appcheck-ng.com/
+ * @package    Inqbate\Appcheck
+ * @copyright  2020 InQBate part of Quint Group
  * Date: 2020/03/05
  * Time: 10:00
  */
@@ -35,6 +37,7 @@ class Connection
     }
 
     /**
+     * Fetch the endpoint
      * @return string
      */
     public function getEndpoint(): string
@@ -43,6 +46,7 @@ class Connection
     }
 
     /**
+     * Set the endpoint
      * @param string $endpoint
      */
     public function setEndpoint(string $endpoint): void
@@ -51,6 +55,7 @@ class Connection
     }
 
     /**
+     * Get the API Key
      * @return string
      */
     public function getApiKey(): string
@@ -59,6 +64,7 @@ class Connection
     }
 
     /**
+     * Set the API Key
      * @param string $apikey
      */
     public function setApiKey(string $apikey): void

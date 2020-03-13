@@ -15,9 +15,9 @@ interface ApiModelInterface
      * @param string $id
      */
     public function find(string $id);
+
     /**
      * Fetch all records
-     * @param string $id
      */
     public function all();
 
@@ -30,15 +30,14 @@ interface ApiModelInterface
     /**
      * update a record
      * @param array $data
+     * @return bool
      */
     public function update(array $data):bool;
+
     /**
      * delete a record
+     * @return bool
      */
     public function delete():bool;
 
-    /**
-     * function to determine what is required for an API call.
-     */
-    //public function required():bool;
 }

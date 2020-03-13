@@ -3,6 +3,8 @@
  *
  * @author Johan Steyn <jsteyn@quint.co.uk>
  * @link https://api.appcheck-ng.com/
+ * @package    Inqbate\Appcheck
+ * @copyright  2020 InQBate part of Quint Group
  * Date: 2020/03/05
  * Time: 10:00
  */
@@ -10,14 +12,9 @@
 namespace Inqbate\Appcheck\Models;
 
 
-use Inqbate\Appcheck\ApiClient;
 use Inqbate\Appcheck\Client;
-use Inqbate\Appcheck\Exceptions\RecordNotFoundException;
 
 /**
- * Short description for class
- *
- * Long description for class (if any)...
  *
  * @property bool $success
  */
@@ -42,6 +39,7 @@ abstract class ApiModel implements ApiModelInterface
     }
 
     /**
+     * Magic method to dynamically fetch data from the API response object
      * @param $name
      * @return mixed
      */
@@ -55,6 +53,7 @@ abstract class ApiModel implements ApiModelInterface
     }
 
     /**
+     * Returns the primary id of the object
      * @return string|null
      */
     public function getId(): ?string
@@ -63,6 +62,7 @@ abstract class ApiModel implements ApiModelInterface
     }
 
     /**
+     * Sets the primary id of the object
      * @param string $id
      */
     public function setId(string $id): void
@@ -71,6 +71,7 @@ abstract class ApiModel implements ApiModelInterface
     }
 
     /**
+     * Sets the data source to connect to
      * @param string $endpoint
      * @return $this
      */
@@ -82,6 +83,7 @@ abstract class ApiModel implements ApiModelInterface
     }
 
     /**
+     * GET data
      * @param array $parameters
      * @return ApiModel
      */
@@ -91,6 +93,7 @@ abstract class ApiModel implements ApiModelInterface
     }
 
     /**
+     * POST data
      * @param array $parameters
      * @return ApiModel
      */
@@ -100,6 +103,7 @@ abstract class ApiModel implements ApiModelInterface
     }
 
     /**
+     * Return debug information about API call
      * @return array
      */
     public function __debugInfo()

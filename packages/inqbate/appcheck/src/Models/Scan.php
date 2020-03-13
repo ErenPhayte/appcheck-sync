@@ -1,12 +1,13 @@
 <?php
 /**
- * @filesource Scan.php
- * @author Foo Bar <foo.bar@email.com>
- * @version    Release:
- * Date: 2020/03/11
- * Time: 14:56
+ *
+ * @author Johan Steyn <jsteyn@quint.co.uk>
+ * @link https://api.appcheck-ng.com/
+ * @package    Inqbate\Appcheck
+ * @copyright  2020 InQBate part of Quint Group
+ * Date: 2020/03/05
+ * Time: 10:00
  */
-
 namespace Inqbate\Appcheck\Models;
 
 
@@ -62,6 +63,10 @@ class Scan extends ApiModel
         return $data->success;
     }
 
+    /**
+     * About a scan
+     * @return bool
+     */
     public function abort(): bool
     {
 
@@ -70,7 +75,7 @@ class Scan extends ApiModel
     }
 
     /**
-     * @return bool
+     * @inheritDoc
      */
     public function delete(): bool
     {
@@ -79,6 +84,10 @@ class Scan extends ApiModel
         return $data->success;
     }
 
+    /**
+     * Pause a scan
+     * @return bool
+     */
     public function pause(): bool
     {
 
@@ -87,6 +96,10 @@ class Scan extends ApiModel
 
     }
 
+    /**
+     * Resume a scan
+     * @return bool
+     */
     public function resume(): bool
     {
 
@@ -95,22 +108,37 @@ class Scan extends ApiModel
 
     }
 
+    /**
+     * Get all scan hubs
+     */
     public function hubs()
     {
         return $this->setEndpoint('scan/hubs')->get();
     }
 
+    /**
+     * Return the status of a scan
+     */
     public function status()
     {
         return $this->setEndpoint('scan/' . $this->getId() . '/status')->get();
     }
 
+    /**
+     * Return a scan run
+     * @param string|null $id
+     * @return mixed
+     */
     public function run(string $id = null)
     {
 
         return $this->client->run($this->getId(), $id);
     }
 
+    /**
+     * Return all vulnerabilities for scan
+     * @return mixed
+     */
     public function vulnerability()
     {
         return $this->client->vulnerability($this->getId());
@@ -118,7 +146,8 @@ class Scan extends ApiModel
     }
 
     /**
-     * @inheritDoc
+     * Return all scan profiles
+     *
      */
     public function profiles()
     {

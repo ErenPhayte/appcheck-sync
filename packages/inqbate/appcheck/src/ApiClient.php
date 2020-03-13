@@ -1,11 +1,14 @@
 <?php
 /**
- * @filesource ApiClient.php
- * @author Foo Bar <foo.bar@email.com>
- * @version    Release: ApiClient
- * Date: 2020/03/10
- * Time: 14:08
+ *
+ * @author Johan Steyn <jsteyn@quint.co.uk>
+ * @link https://api.appcheck-ng.com/
+ * @package    Inqbate\Appcheck
+ * @copyright  2020 InQBate part of Quint Group
+ * Date: 2020/03/05
+ * Time: 10:00
  */
+
 
 namespace Inqbate\Appcheck;
 
@@ -13,14 +16,10 @@ namespace Inqbate\Appcheck;
 use GuzzleHttp;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
-use http\Exception\InvalidArgumentException;
-use Inqbate\Appcheck\Exceptions\ApiModelNotFoundException;
 
 /**
  *
  * @property bool $success
- * @package    Inqbate\Appcheck
- * @copyright  2020 InQBate part of Quint Group
  */
 class ApiClient
 {
@@ -75,6 +74,7 @@ class ApiClient
     }
 
     /**
+     * Gets the status code of the request
      * @return int
      */
     public function getStatusCode(): int
@@ -83,6 +83,7 @@ class ApiClient
     }
 
     /**
+     * Sets the status code of the request
      * @param int $statusCode
      */
     private function setStatusCode(int $statusCode): void
@@ -123,15 +124,6 @@ class ApiClient
 
     /**
      * Get the request body
-     * @return string $data
-     */
-    public function getRequestBodyRaw(): ?string
-    {
-        return $this->requestBody;
-    }
-
-    /**
-     * Get the request body
      * @return array $data
      */
     public function getRequestBody(): ?array
@@ -157,15 +149,6 @@ class ApiClient
     public function getRequestHeaders(): array
     {
         return $this->requestHeaders;
-    }
-
-    /**
-     * Get the response body as a json string
-     * @return string
-     */
-    public function getResponseBodyRaw(): string
-    {
-        return json_encode($this->responseBody);
     }
 
     /**
@@ -314,6 +297,10 @@ class ApiClient
         return (object)$debug;
     }
 
+    /**
+     * Magic method to return the API client information when you dump the output.
+     * @return array
+     */
     public function __debugInfo()
     {
         return (array) $this->debug();
@@ -325,10 +312,10 @@ class ApiClient
      */
     public function getError(): ?array
     {
+        $data = $this->getResponseBody();
         if ($this->success === false) {
-            $data = $this->getResponseBody();
             unset($data['success']);
-            return $data;
         }
+        return $data;
     }
 }

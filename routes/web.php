@@ -39,6 +39,11 @@ Route::get('/', function () {
 
     dump($data);
 
+
+    $data = $appcheck->scan('122f5c9b23284dfb')->profiles();
+
+    dump($data);
+
     $data = $appcheck->scan('122f5c9b23284dfb');
 
     dump($data);

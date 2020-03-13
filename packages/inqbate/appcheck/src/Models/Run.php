@@ -21,6 +21,7 @@ class Run extends ApiModel
     private $scanId;
 
     /**
+     * Get scan id
      * @return string
      */
     public function getScanId(): string
@@ -29,6 +30,7 @@ class Run extends ApiModel
     }
 
     /**
+     * Set scan id
      * @param string $scanId
      */
     public function setScanId(string $scanId): void
@@ -83,6 +85,10 @@ class Run extends ApiModel
         throw new ApiModelNotFoundException('End point doesnt exist');
     }
 
+    /**
+     * Return all vulnerabilities for scan
+     * @return mixed
+     */
     public function vulnerability()
     {
         return $this->client->vulnerability($this->getScanId(), $this->getId());
