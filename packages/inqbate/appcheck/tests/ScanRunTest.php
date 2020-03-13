@@ -9,7 +9,7 @@
 
 namespace Inqbate\Appcheck\Tests;
 
-use Inqbate\Appcheck\ScanRun;
+use Inqbate\Appcheck\Run;
 
 class ScanRunTest extends \PHPUnit_Framework_TestCase
 {

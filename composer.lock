@@ -977,16 +977,14 @@
             "dist": {
                 "type": "path",
                 "url": "packages/inqbate/appchecksync",
-                "reference": "0777d3768b130d57169a3cad09c7820f9626f46d"
+                "reference": "23fc54c496b30c4dd7d317554debffdec029ab02"
             },
             "require": {
                 "ext-json": "*",
                 "inqbate/appcheck": "0.0.*",
                 "inqbate/jira": "0.0.*",
-                "inqbate/unfuddled": "0.0.*",
-                "lesstif/php-jira-rest-client": "^2.0",
-                "php": "^7.3",
-                "phpunfuddle/phpunfuddle": "^1.0"
+                "inqbate/unfuddle": "0.0.*",
+                "php": "^7.3"
             },
             "require-dev": {
                 "limedeck/phpunit-detailed-printer": "^5.0",
@@ -1083,12 +1081,12 @@
             }
         },
         {
-            "name": "inqbate/unfuddled",
+            "name": "inqbate/unfuddle",
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "packages/inqbate/unfuddled",
-                "reference": "d02c681d0c5bd5b086e05007858881e2d1549dc2"
+                "url": "packages/inqbate/unfuddle",
+                "reference": "db32c958ed6b0c9f184d7e86324a33a9f1656b79"
             },
             "require": {
                 "ext-json": "*",
@@ -1108,12 +1106,12 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Inqbate\\Unfuddled\\": "src/"
+                    "Inqbate\\Unfuddle\\": "src/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "Inqbate\\Jira\\Tests\\": "tests/"
+                    "Inqbate\\Unfuddle\\Tests\\": "tests/"
                 }
             },
             "license": [
@@ -1127,7 +1125,7 @@
                     "role": "Head of Technology"
                 }
             ],
-            "description": "Unfuddled API Wrapper",
+            "description": "Unfuddle API Wrapper",
             "homepage": "https://...",
             "transport-options": {
                 "symlink": true
@@ -1578,16 +1576,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.64",
+            "version": "1.0.65",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "d13c43dbd4b791f815215959105a008515d1a2e0"
+                "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/d13c43dbd4b791f815215959105a008515d1a2e0",
-                "reference": "d13c43dbd4b791f815215959105a008515d1a2e0",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
+                "reference": "8f17b3ba67097aafb8318cd5c553b1acf7c891c8",
                 "shasum": ""
             },
             "require": {
@@ -1658,67 +1656,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2020-02-05T18:14:17+00:00"
-        },
-        {
-            "name": "lesstif/php-jira-rest-client",
-            "version": "2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lesstif/php-jira-rest-client.git",
-                "reference": "566571cd545976b965819fa89f4ed66e5c47a0c9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lesstif/php-jira-rest-client/zipball/566571cd545976b965819fa89f4ed66e5c47a0c9",
-                "reference": "566571cd545976b965819fa89f4ed66e5c47a0c9",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "monolog/monolog": "~1.12|^2.0",
-                "netresearch/jsonmapper": "~0.11|^1.0",
-                "php": "^7.1",
-                "vlucas/phpdotenv": "~1.0|~2.0|^3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": ">=5.7 <6",
-                "symfony/var-dumper": "~2.8|~3.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "JiraRestApi\\JiraRestApiServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JiraRestApi\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "KwangSeob Jeong",
-                    "email": "lesstif@gmail.com",
-                    "homepage": "https://lesstif.com/"
-                }
-            ],
-            "description": "JIRA REST API Client for PHP Users.",
-            "keywords": [
-                "jira",
-                "jira-php",
-                "jira-rest",
-                "rest"
-            ],
-            "time": "2020-02-27T10:51:57+00:00"
+            "time": "2020-03-08T18:53:20+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1921,52 +1859,6 @@
                 "time"
             ],
             "time": "2020-03-01T11:11:58+00:00"
-        },
-        {
-            "name": "netresearch/jsonmapper",
-            "version": "v1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cweiske/jsonmapper.git",
-                "reference": "0d4d1b48d682a93b6bfedf60b88c7750e9cb0b06"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cweiske/jsonmapper/zipball/0d4d1b48d682a93b6bfedf60b88c7750e9cb0b06",
-                "reference": "0d4d1b48d682a93b6bfedf60b88c7750e9cb0b06",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-pcre": "*",
-                "ext-reflection": "*",
-                "ext-spl": "*",
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8.35 || ~5.7 || ~6.4",
-                "squizlabs/php_codesniffer": "~1.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "JsonMapper": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OSL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Weiske",
-                    "email": "cweiske@cweiske.de",
-                    "homepage": "http://github.com/cweiske/jsonmapper/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Map nested JSON structures onto PHP classes",
-            "time": "2019-08-15T19:41:25+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2326,50 +2218,6 @@
                 "x509"
             ],
             "time": "2020-02-25T04:16:50+00:00"
-        },
-        {
-            "name": "phpunfuddle/phpunfuddle",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/markushausammann/phpUnfuddle.git",
-                "reference": "04e2ec8382fa3395a9cad26fe2c408cb56536a31"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/markushausammann/phpUnfuddle/zipball/04e2ec8382fa3395a9cad26fe2c408cb56536a31",
-                "reference": "04e2ec8382fa3395a9cad26fe2c408cb56536a31",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Unfuddle": "library/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "WTFPL"
-            ],
-            "authors": [
-                {
-                    "name": "Markus Hausammann",
-                    "email": "markus.hausammann@brightanswer.ch"
-                }
-            ],
-            "description": "phpUnfuddle was supposed to be a PHP wrapper for the RESTful unfuddle API, now it's just a ticket posting script.",
-            "homepage": "https://github.com/markushausammann/phpunfuddle",
-            "keywords": [
-                "Software Project Management",
-                "api",
-                "rest",
-                "unfuddle",
-                "wrapper"
-            ],
-            "time": "2018-02-14T14:44:46+00:00"
         },
         {
             "name": "psr/container",

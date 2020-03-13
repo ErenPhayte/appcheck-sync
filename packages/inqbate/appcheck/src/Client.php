@@ -6,69 +6,62 @@
  * Date: 2020/03/05
  * Time: 10:00
  */
+
 namespace Inqbate\Appcheck;
 
 
-class Client extends AppcheckAbstract
+use Inqbate\Appcheck\Exceptions\ApiModelNotFoundException;
+
+class Client
 {
-    use VulnerabilityTrait;
-
     /**
-     * Return all scans
-     *
-     * Response JSON Object:
-     *
-     *       success (boolean) – operation was successful
-     *       message (string) – human readable response
-     *       data (objects) – list of scans
-     *
-     * Response JSON Array of Objects:
-     *
-     *       scan_id (string) – ID of the scan
-     *       name (string) – name of the scan
-     *       user_name (string) – name of the owner of the scan
-     *       targets (strings) – targets of the scan (URLs, host names, or IP addresses)
-     * @return object|null
+     * @var ApiClient
      */
-    public function scans():?object
+    private $api;
+
+    public function __construct(Connection $connection)
     {
-        return $this->setRequestUri('scans')->get();
+        $this->api = new ApiClient ($connection);
     }
 
-    /**
-     *  Return all scan profiles
-     *
-     * Response JSON Object:
-     *
-     *      success (boolean) – operation was successful
-     *      message (string) – human readable response
-     *      data (objects) – list of scan profiles
-     *
-     * Response JSON Array of Objects:
-     *
-     *      profile_id (string) – ID of the profile
-     *      name (string) – name of the profile
-     *      user_name (string) – name of the owner of the profile
-     * @return object|null
-     */
-    public function scanprofiles():?object
+    public function getResponseBody()
     {
-       return $this->setRequestUri('scanprofiles')->get();
-
+        return $this->api->getResponseBody();
     }
 
-    /**
-     * Fetch information about a scan or create a scan
-     * @param string|null $id
-     * @return Scan
-     */
-    public function scan(?string $id = null): Scan
+    public function setRequestUri(string $uri)
     {
-        $scan =  new Scan($this->connection);
+        $this->api->setRequestUri($uri);
+    }
 
-        if($id != null) {
-            return $scan->find($id);
+    public function get(array $parameters = [])
+    {
+        return $this->api->get($parameters);
+    }
+
+    public function post(array $parameters = [])
+    {
+
+        return $this->api->post($parameters);
+    }
+
+    public function __call(string $name, array $arguments = [])
+    {
+        $model = __NAMESPACE__ . '\\Models\\' . ucfirst($name);
+
+        if (class_exists($model)) {
+
+            return new $model($this, ...$arguments);
+
+        } else {
+
+            throw new ApiModelNotFoundException($name . ' endpoint not found.');
+
         }
-        return $scan;
+    }
+
+    public function __debugInfo()
+    {
+        return $this->api->debug();
     }
 }

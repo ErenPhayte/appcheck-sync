@@ -16,22 +16,65 @@ use Inqbate\Unfuddle;
 Route::get('/', function () {
 
 
-    $connection = new Unfuddle\Connection('https://bitscube.unfuddle.com/', 'jsteynr11f808' , 'Ph@3nix2019');
-    $unfuddle = new Unfuddle\Client($connection);
-    $unfuddle->account_snapshot();
+//    $connection = new Unfuddle\Connection('https://bitscube.unfuddle.com/', 'jsteynr11f808' , 'Ph@3nix2019');
+//    $unfuddle = new Unfuddle\Client($connection);
+//
+//
+//    $data = $unfuddle->people();
 
 
-//    $connection = new Appcheck\Connection('e5364ab8c6cd70fbb039c33aa2404b55');
-//    $appcheck = new Appcheck\Client($connection);
-//
-//    $scans = $appcheck->scans();
-//
-//    dd($scans->getError());
-//
-//    $scans->debug();
 
-//    $appcheck->scanprofiles();
-//    $appcheck->vulnerabilities();
+    $connection = new Appcheck\Connection('e5364ab8c6cd70fbb039c33aa2404b55');
+    $appcheck = new Appcheck\Client($connection);
+
+    $data = $appcheck->scan()->all();
+
+    dump($data);
+
+    $data = $appcheck->scan()->profiles();
+
+    dump($data);
+
+    $data = $appcheck->scan('122f5c9b23284dfb')->status();
+
+    dump($data);
+
+    $data = $appcheck->scan('122f5c9b23284dfb');
+
+    dump($data);
+
+    $data = $appcheck->scan('122f5c9b23284dfb')->run()->all();
+
+    dump($data);
+
+    $data = $appcheck->scan('122f5c9b23284dfb')->run('365fb831eb234976');
+
+    dump($data);
+
+    //$data = $appcheck->scan('122f5c9b23284dfb')->run('365fb831eb234976d')->delete();
+
+  // dump($data->debug());
+
+    $data = $appcheck->vulnerability()->all();
+
+    dump($data);
+
+    $data = $appcheck->scan('122f5c9b23284dfb')->vulnerability()->all();
+
+    dump($data);
+
+    $data = $appcheck->scan('122f5c9b23284dfb')->run('365fb831eb234976')->vulnerability()->all();
+
+    dump($data);
+
+//
+//    $data = $appcheck->scan()->create([
+//        'name' => 'api test',
+//        'targets' => 'https://inqbate.com'
+//    ]);
+//
+//    dd($data);
+
 //
 //   // $newScan = $appcheck->scan()->create([]);
 //

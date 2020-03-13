@@ -116,18 +116,16 @@
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/doctrine/event-manager" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/doctrine/cache" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/laravel/nova" />
-      <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/netresearch/jsonmapper" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/guzzlehttp/guzzle" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/guzzlehttp/psr7" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/guzzlehttp/promises" />
-      <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/phpunfuddle/phpunfuddle" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/psr/http-message" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/inqbate/unfuddled" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/inqbate/appcheckSync" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/ralouphie/getallheaders" />
-      <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/lesstif/php-jira-rest-client" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/inqbate/jira" />
       <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/inqbate/appcheck" />
+      <path value="$USER_HOME$/workspace/projects/appcheck-sync/vendor/inqbate/unfuddle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

@@ -9,7 +9,7 @@
 
 namespace Inqbate\Appcheck\Tests;
 
-use Inqbate\Appcheck\AppcheckAbstract;
+use Inqbate\Appcheck\ApiModel;
 
 class AppcheckAbstractTest extends \PHPUnit_Framework_TestCase
 {
